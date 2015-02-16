@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+ 
+
+    <link rel="stylesheet" href="lib/gallery/css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <div class="controls">
+  <label>Filter:</label>
+
+  <button class="filter" data-filter="all">All</button>
+  <button class="filter" data-filter=".category-1">Category 1</button>
+  <button class="filter" data-filter=".category-2">Category 2</button>
+
+  <label>Sort:</label>
+
+  <button class="sort" data-sort="myorder:asc">Asc</button>
+  <button class="sort" data-sort="myorder:desc">Desc</button>
+</div>
+<div id="Container" class="container-box">
+  <div class="mix category-1" data-myorder="1"></div>
+  <div class="mix category-1" data-myorder="2"></div>
+  <div class="mix category-1" data-myorder="3"></div>
+  <div class="mix category-2" data-myorder="4"></div>
+  <div class="mix category-1" data-myorder="5"></div>
+  <div class="mix category-1" data-myorder="6"></div>
+  <div class="mix category-2" data-myorder="7"></div>
+  <div class="mix category-2" data-myorder="8"></div>
+
+  <div class="gap"></div>
+  <div class="gap"></div>
+</div>
+
+  <script src='lib/gallery/js/jquery.js'></script>
+  <script src='lib/gallery/js/jquery.mixitup.min.js'></script>
+
+  <script src="lib/gallery/js/index.js"></script>
+
+</body>
+
+</html>
