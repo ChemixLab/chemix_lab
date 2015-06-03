@@ -1,6 +1,7 @@
 <!doctype html>
 <html ng-app>
 <head>
+
 <script type="text/javascript">
 	function ChemicalDashBoardController($scope) {
 		$scope.inputChemicals = [];
@@ -35,9 +36,27 @@
 			$scope.catalists.splice(index, 1);
 		}
 		
-		$scope.save = function(){
-			
-		}
+		/** function to add details for products in mysql referecing php **/
+
+	    $scope.add_reaction = function() {
+	        $http.post('db.php?action=add_reaction', 
+	            {
+	                'prod_name'     : $scope.prod_name, 
+	                'prod_desc'     : $scope.prod_desc, 
+	                'prod_price'    : $scope.prod_price,
+	                'prod_quantity' : $scope.prod_quantity
+	            }
+	        )
+	        .success(function (data, status, headers, config) {
+	          alert("Product has been Submitted Successfully");
+	          $scope.get_product();
+
+	        })
+
+	        .error(function(data, status, headers, config){
+	           
+	        });
+	    }
 	}
 </script>
 </head>
