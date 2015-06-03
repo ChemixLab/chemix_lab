@@ -1,0 +1,103 @@
+<!doctype html>
+<html ng-app>
+<head>
+<script type="text/javascript">
+	function ChemicalDashBoardController($scope) {
+		$scope.inputChemicals = [];
+		$scope.addInuputChemicals = function() {
+			$scope.inputChemicals.push($scope.newInputChemical);
+		}
+		$scope.removeInputChemical = function(index) {
+			$scope.inputChemicals.splice(index, 1);
+		}
+
+		$scope.outputChemicals = [];
+		$scope.addOutputChemicals = function() {
+			$scope.outputChemicals.push($scope.newOutputChemical);
+		}
+		$scope.removeOutputItem = function(index) {
+			$scope.outputChemicals.splice(index, 1);
+		}
+		
+		$scope.observations = [];
+		$scope.addObservation = function() {
+			$scope.observations.push($scope.newObservation);
+		}
+		$scope.removeObservation = function(index) {
+			$scope.observations.splice(index, 1);
+		}
+		
+		$scope.catalists = [];
+		$scope.addCatalists = function() {
+			$scope.catalists.push($scope.newObservation);
+		}
+		$scope.removeCatalists = function(index) {
+			$scope.catalists.splice(index, 1);
+		}
+		
+		$scope.save = function(){
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+	<div ng-controller="ChemicalDashBoardController">
+
+
+		List of Selected Input Chemicals :
+		<ul>
+			<li ng-repeat="iChem in inputChemicals">{{iChem}}
+				<button ng-click="removeInputChemical($index)">Remove</button>
+			</li>
+		</ul>
+
+		<hr />
+		Add input Chemical : <input type="text" ng-model="newInputChemical">
+		<button ng-click="addInuputChemicals()">Add</button>
+		
+		<hr/>
+		<hr/>
+		List of Selected Output Chemicals :
+		<ul>
+			<li ng-repeat="oChem in outputChemicals">{{oChem}}
+				<button ng-click="removeOutputItem($index)">Remove</button>
+			</li>
+		</ul>
+
+		<hr />
+		Add output Chemical : <input type="text" ng-model="newOutputChemical">
+		<button ng-click="addOutputChemicals()">Add</button>
+		
+		<hr/>
+		<hr/>
+		List of Selected Observation :
+		<ul>
+			<li ng-repeat="obs in observations">{{obs}}
+				<button ng-click="removeObservation($index)">Remove</button>
+			</li>
+		</ul>
+
+		<hr />
+		Add Observations Chemical : <input type="text" ng-model="newObservation">
+		<button ng-click="addObservation()">Add</button>
+		
+		<hr/>
+		<hr/>
+		List of Selected Catalists :
+		<ul>
+			<li ng-repeat="cat in catalists">{{cat}}
+				<button ng-click="removeCatalists($index)">Remove</button>
+			</li>
+		</ul>
+
+		<hr />
+		Add Caltalist Chemical : <input type="text" ng-model="newCatalists">
+		<button ng-click="addCatalists()">Add</button>
+		
+		
+	</div>
+</body>
+</html>
