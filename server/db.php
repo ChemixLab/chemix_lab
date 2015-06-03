@@ -2,11 +2,12 @@
 
 include('config.php'); 
 
+
 /**  Switch Case to Get Action from controller  **/
 /**fahim **/
 switch($_GET['action'])  {
     case 'add_reaction' :
-            add_reation();
+            add_reaction();
             break;
 
     case 'get_reation' :
@@ -31,10 +32,10 @@ switch($_GET['action'])  {
 
 function add_reaction() {
     $data = json_decode(file_get_contents("php://input")); 
-    $input_chemical      = $data->input_chemical;    
-    $output_chemical     = $data->output_chemical;
-    $observation    = $data->observation;
-    $cataliist = $data->cataliist;
+    $input_chemical      = 'test1';//$data->input_chemical;    
+    $output_chemical     = 'test2';//$data->output_chemical;
+    $observation    = 'test3';//$data->observation;
+    $cataliist = 'test4';//$data->cataliist;
  
     print_r($data);
     $qry = 'INSERT INTO tb_reaction (input_chemical ,output_chemical,observation,cataliist) values ("' .  $input_chemical  . '","' .  $output_chemical   . '",' .$observation . ','. $cataliist.')';
@@ -75,7 +76,7 @@ function get_reation() {
 
 /**  Function to Delete Product  **/
 
-function delete_product() {
+function delet_product() {
     $data = json_decode(file_get_contents("php://input"));     
     $index = $data->prod_index;     
     //print_r($data)   ;
