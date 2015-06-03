@@ -3,7 +3,7 @@
 include('config.php'); 
 
 /**  Switch Case to Get Action from controller  **/
-/**fahim
+/**fahim **/
 switch($_GET['action'])  {
     case 'add_product' :
             add_product();
