@@ -3,14 +3,14 @@
 include('config.php'); 
 
 /**  Switch Case to Get Action from controller  **/
-//safrana
+
 switch($_GET['action'])  {
-    case 'add_product' :
-            add_product();
+    case 'add_reaction' :
+            add_reation();
             break;
 
-    case 'get_product' :
-            get_product();
+    case 'get_reation' :
+            get_reation();
             break;
 
     case 'edit_product' :
@@ -29,7 +29,7 @@ switch($_GET['action'])  {
 
 /**  Function to Add Product  **/
 
-function add_product() {
+function add_reation() {
     $data = json_decode(file_get_contents("php://input")); 
     $prod_name      = $data->prod_name;    
     $prod_desc      = $data->prod_desc;
@@ -55,7 +55,7 @@ function add_product() {
 
 /**  Function to Get Product  **/
 
-function get_product() {    
+function get_reation() {    
     $qry = mysql_query('SELECT * from product');
     $data = array();
     while($rows = mysql_fetch_array($qry))
