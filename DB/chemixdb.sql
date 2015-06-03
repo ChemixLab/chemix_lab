@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 03, 2015 at 02:27 PM
+-- Generation Time: Jun 03, 2015 at 02:51 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -18,6 +18,24 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `chemixdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `catalyst`
+--
+
+CREATE TABLE IF NOT EXISTS `catalyst` (
+  `catalyst_id` int(11) NOT NULL,
+  `catalyst_name` text NOT NULL,
+  `image` longblob NOT NULL,
+  PRIMARY KEY (`catalyst_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `catalyst`
+--
+
 
 -- --------------------------------------------------------
 
