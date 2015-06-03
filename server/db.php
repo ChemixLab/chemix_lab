@@ -29,19 +29,19 @@ switch($_GET['action'])  {
 
 /**  Function to Add Product  **/
 
-function add_reation() {
+function add_reaction() {
     $data = json_decode(file_get_contents("php://input")); 
-    $prod_name      = $data->prod_name;    
-    $prod_desc      = $data->prod_desc;
-    $prod_price     = $data->prod_price;
-    $prod_quantity  = $data->prod_quantity;
+    $input_chemical      = $data->input_chemical;    
+    $output_chemical     = $data->output_chemical;
+    $observation    = $data->observation;
+    $cataliist = $data->cataliist;
  
     print_r($data);
-    $qry = 'INSERT INTO product (prod_name,prod_desc,prod_price,prod_quantity) values ("' . $prod_name . '","' . $prod_desc . '",' .$prod_price . ','.$prod_quantity.')';
+    $qry = 'INSERT INTO tb_reaction (input_chemical ,output_chemical,observation,cataliist) values ("' .  $input_chemical  . '","' .  $output_chemical   . '",' .$observation . ','. $cataliist.')';
    
     $qry_res = mysql_query($qry);
     if ($qry_res) {
-        $arr = array('msg' => "Product Added Successfully!!!", 'error' => '');
+        $arr = array('msg' => "Reaction Added Successfully!!!", 'error' => '');
         $jsn = json_encode($arr);
         // print_r($jsn);
     } 
