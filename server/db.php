@@ -2,6 +2,7 @@
 
 include('config.php'); 
 
+
 /**  Switch Case to Get Action from controller  **/
 /**fahim **/
 switch($_GET['action'])  {
@@ -75,7 +76,7 @@ function get_reation() {
 
 /**  Function to Delete Product  **/
 
-function delete_product() {
+function delet_product() {
     $data = json_decode(file_get_contents("php://input"));     
     $index = $data->prod_index;     
     //print_r($data)   ;
