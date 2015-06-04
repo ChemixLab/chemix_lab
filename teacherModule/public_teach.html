@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html ng-app="listpp" lang="en">
+<head>
+<meta charset="utf-8">
+<link href="./../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+ul>li, a {
+	cursor: pointer;
+}
+</style>
+<title>Angular With PHP</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="controller.js"></script>
+</head>
+<body background="./../img/bg.png" >
+
+	<style>
+.outer {
+	display: table;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: "#FFFFFF";
+}
+
+.middle {
+	display: table-cell;
+	vertical-align: middle;
+	
+}
+
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid orange;
+	border-radius: 15px;
+	width: /*whatever width you want*/;
+	background-image: url('./../img/white.png');
+}
+
+.btn-container {
+	margin: 20px;
+}
+
+.panel {
+	margin: 15px;
+}
+</style>
+
+
+
+	<div ng-controller="userCtrl"  class="container outer" 
+		ng-init="myVar1=true;myVar2=false;myVar3=false;myVar4=false;myVar5=false;myVar6=false;">
+
+		<div class="container middle" >
+			<div class="container inner" ng-show="myVar1">
+				<h1>
+					<b>What Are The Chemical Reactants You Need?</b>
+				</h1>
+				<br /> <input type="text" class="input-medium search-query"
+					ng-model="newInputChemical">
+				<button ng-click="addInuputChemicals()" class="btn btn-primary">Add</button>
+				<hr />
+
+				<h4 ng-if="inputChemicals.length"">List of Selected Reactant
+					Chemicals:</h4>
+				<ul>
+					<li ng-repeat="iChem in inputChemicals"><span
+						class="label label-info">{{iChem}} <i
+							class="glyphicon glyphicon-remove"
+							ng-click="removeInputChemical($index)"></i></span></li>
+				</ul>
+				<br />
+
+				<center>
+					<button class="btn btn-large btn-primary btn-container"
+						type="button" ng-if="inputChemicals.length" ng-click="hideMe1()">Next</button>
+				</center>
+
+			</div>
+
+			<!-- Second Div -->
+			<div class="container middle">
+				<div class="container inner" ng-show="myVar2">
+					<h1>
+						<b>What Production Chemicals You Expect?</b>
+					</h1>
+					<br /> <input type="text" class="input-medium search-query"
+						ng-model="newOutputChemical">
+					<button ng-click="addOutputChemicals()" class="btn btn-primary">Add</button>
+					<hr />
+
+					<h4 ng-if="outputChemicals.length"">List of Expected Chemical
+						Products! Chemicals:</h4>
+					<ul>
+						<li ng-repeat="oChem in outputChemicals"><span
+							class="label label-info">{{oChem}} <i
+								class="glyphicon glyphicon-remove"
+								ng-click="removeOuputChemical($index)"></i></span></li>
+					</ul>
+					<br />
+
+					<center>
+						<button class="btn btn-large btn-primary btn-container"
+							type="button" ng-if="outputChemicals.length" ng-click="hideMe2()">Next</button>
+					</center>
+
+				</div>
+				<!-- End -->
+
+				<!-- Third Div -->
+				<div class="container middle">
+					<div class="container inner" ng-show="myVar3">
+						<h1>
+							<b>What You Expected Observations? </b>
+						</h1>
+						<br /> <input type="text" class="input-medium search-query"
+							ng-model="newObservation">
+						<button ng-click="addObservation()" class="btn btn-primary">Add</button>
+						<hr />
+
+						<h4 ng-if="observations.length"">List of Observations You
+							Expect!</h4>
+						<ul>
+							<li ng-repeat="obs in observations"><span
+								class="label label-info">{{obs}} <i
+									class="glyphicon glyphicon-remove"
+									ng-click="removeObservation($index)"></i></span></li>
+						</ul>
+						<br />
+
+						<center>
+							<button class="btn btn-large btn-primary btn-container"
+								type="button" ng-if="observations.length" ng-click="hideMe3()">Next</button>
+						</center>
+
+					</div>
+					<!-- End -->
+
+					<!-- Fourth Div -->
+					<div class="container middle">
+						<div class="container inner" ng-show="myVar4">
+							<h1>
+								<b>Do You Need Catalists? If Yes! What Are They? </b>
+							</h1>
+							<br /> <input type="text" class="input-medium search-query"
+								ng-model="newCatalists">
+							<button ng-click="addCatalists()" class="btn btn-primary">Add</button>
+							<hr />
+
+							<h4 ng-if="catalists.length"">List of Catalist You Need?
+								Chemicals:</h4>
+							<ul>
+								<li ng-repeat="cat in catalists"><span
+									class="label label-info">{{cat}} <i
+										class="glyphicon glyphicon-remove"
+										ng-click="removeCatalists($index)"></i></span></li>
+							</ul>
+							<br />
+
+							<center>
+								<button class="btn btn-large btn-primary btn-container"
+									type="button" ng-if="catalists.length" ng-click="hideMe4()">Next</button>
+							</center>
+
+						</div>
+						<!-- End -->
+
+
+
+						<!-- Fifth Div -->
+						<div class="container middle">
+							<div class="container inner" ng-show="myVar5">
+
+								<div class="panel">
+									<h1>You have choosed:</h1>
+									1.Reactants
+									<ul>
+										<li ng-repeat="iChem in inputChemicals"><span
+											class="label label-info">{{iChem}} <i
+												class="glyphicon glyphicon-remove"
+												ng-click="removeInputChemical($index)"></i></span></li>
+									</ul>
+
+									2.Products
+									<ul>
+										<li ng-repeat="oChem in outputChemicals"><span
+											class="label label-info">{{oChem}} <i
+												class="glyphicon glyphicon-remove"
+												ng-click="removeOuputChemical($index)"></i></span></li>
+									</ul>
+
+									3.Observations
+									<ul>
+										<li ng-repeat="obs in observations"><span
+											class="label label-info">{{obs}} <i
+												class="glyphicon glyphicon-remove"
+												ng-click="removeObservation($index)"></i></span></li>
+									</ul>
+									4. Catalists
+									<ul>
+										<li ng-repeat="cat in catalists"><span
+											class="label label-info">{{cat}} <i
+												class="glyphicon glyphicon-remove"
+												ng-click="removeCatalists($index)"></i></span></li>
+									</ul>
+								</div>
+								<center>
+									<button class="btn btn-large btn-danger btn-container"
+										type="button" ng-click="product_submit()">Save &amp;
+										Publish</button>
+								</center>
+
+							</div>
+							<!-- End -->
+							
+							<!-- Sixth Div -->
+						<div class="container middle">
+							<div class="container inner" ng-show="myVar6">
+
+								<div class="panel">
+									<h1>Your Reaction ID: {{reaction_id}}</h1>
+								</div>
+								
+
+							</div>
+							<!-- End -->
+
+
+
+
+
+						</div>
+					</div>
+					<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+</body>
+</html>
