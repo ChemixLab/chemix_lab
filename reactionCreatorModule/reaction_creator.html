@@ -13,8 +13,9 @@
 <body>
 
 
-<div ng-controller="userCtrl" class="container outer">
+<div ng-controller="userCtrl" class="container outer" ng-init="myDashboard=true;">
 
+    <div class="inner_container" ng-show="myDashboard">
     <!-- Reactants -->
     <div class="panel">
         <div class="heading">
@@ -107,7 +108,7 @@
 
     <!-- Save Area -->
     <center>
-    <button class="button block success loading-pulse"><span class="icon mif-floppy-disk"></span>&nbsp; SAVE &amp; PUBLISH</button></center>
+    <button class="button block success loading-pulse" ng-click="product_submit()"><span class="icon mif-floppy-disk"></span>&nbsp; SAVE &amp; PUBLISH</button></center>
 
     <br/>
     <br/>
@@ -116,6 +117,10 @@
 
 
 
+    </div>
+
+    <div class="container" ng-show="myKey">
+        {{reaction_id}}
     </div>
 </div>
 <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>

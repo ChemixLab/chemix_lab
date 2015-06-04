@@ -46,11 +46,13 @@ listApp.controller('userCtrl', function($scope, $http) {
 
 
 
+
+
 	/** function to add details for products in mysql referecing php * */
 
 	$scope.product_submit = function() {
-		$scope.myVar5 = false;
-		$scope.myVar6 = true;
+		$scope.myDashboard = false;
+		$scope.myKey = true;
 		$scope.reaction_id = makeid();
 		$http.post('db.php?action=add_product', {
 			'reaction_id' : $scope.reaction_id,
