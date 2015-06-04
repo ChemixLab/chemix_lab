@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="listpp" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Angular With PHP</title>
+    <link href="./../lib/metroV3/css/metro.css" rel="stylesheet">
+    <script src="./../lib/jquery/jquery.min.js"></script>
+    <script src="./../lib/metroV3/js/metro.js"></script>
+    <link href="./../lib/metroV3/css/metro-icons.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>
+
+
+<div ng-controller="userCtrl" class="container outer" ng-init="myDashboard=true;">
+
+    <div class="inner_container" ng-show="myDashboard">
+    <!-- Reactants -->
+    <div class="panel">
+        <div class="heading">
+            <span class="icon mif-home"></span>
+            <span class="title">Reactants</span>
+        </div>
+        <div class="content">
+            <div class="input-control text">
+                <input type="text" ng-model="newInputChemical">
+                <button ng-click="addInuputChemicals()" class="button primary"><span class="mif-plus"></span></button>
+            </div>
+            <div ng-repeat="iChem in inputChemicals">
+                <span class="tag success">{{iChem}}&nbsp;<span ng-click="removeInputChemical($index)"
+                                                               class="icon mif-cross"></span> </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <!-- Catalists -->
+    <div class="panel">
+        <div class="heading">
+            <span class="icon mif-home"></span>
+            <span class="title">Catalists (if you need)</span>
+        </div>
+        <div class="content">
+            <div class="input-control text">
+                <input type="text" ng-model="newCatalist">
+                <button ng-click="addCatalists()" class="button primary"><span class="mif-plus"></span></button>
+            </div>
+            <div ng-repeat="iCat in catalists">
+                <span class="tag warning">{{iCat}}&nbsp;<span ng-click="removeCatalists($index)"
+                                                              class="icon mif-cross"></span> </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <!-- Product -->
+    <div class="panel">
+        <div class="heading">
+            <span class="icon mif-home"></span>
+            <span class="title">Product</span>
+        </div>
+        <div class="content">
+            <div class="input-control text">
+                <input type="text" ng-model="newOutputChemical">
+                <button ng-click="addOutputChemicals()" class="button primary"><span class="mif-plus"></span></button>
+            </div>
+            <div ng-repeat="oChem in outputChemicals">
+                <span class="tag success">{{oChem}}&nbsp;<span ng-click="removeOutputChemical($index)"
+                                                               class="icon mif-cross"></span> </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <!-- Observations -->
+    <div class="panel">
+        <div class="heading">
+            <span class="icon mif-home"></span>
+            <span class="title">Observations</span>
+        </div>
+        <div class="content">
+            <div class="input-control select" >
+                <select ng-model="newObservation">
+                    <option>Temperature Change</option>
+                    <option>Color Change</option>
+                    <option>Volume Change</option>
+                    <option>pH</option>
+                </select>
+
+                <button ng-click="addObservation()" class="button primary"><span class="mif-plus"></span></button>
+            </div>
+            <div ng-repeat="obs in observations">
+                <span class="tag success">{{obs}}&nbsp;<span ng-click="removeObservation($index)"
+                                                             class="icon mif-cross"></span> </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <!-- Save Area -->
+    <center>
+    <button class="button block success loading-pulse" ng-click="product_submit()"><span class="icon mif-floppy-disk"></span>&nbsp; SAVE &amp; PUBLISH</button></center>
+
+    <br/>
+    <br/>
+
+
+
+
+
+    </div>
+
+    <div class="container" ng-show="myKey">
+        {{reaction_id}}
+    </div>
+</div>
+<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+</body>
+</html>
