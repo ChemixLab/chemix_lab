@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        ChemixVisualize
+    </title>
+    <link rel="icon" type="image/png" href="assets/img/index-icon.png"/>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+   
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="assets/js/index.js"></script>
+   <style type="text/css">
+	body{ 
+		margin:0; 
+		background-color:rgba(255,255,255,1);
+		width:100%;
+		height:100%;
+	}
+	 .ShapeDemo {
+            min-height: 200px;
+            width: 100%;
+        }
+	.page{ position:relative; }
+	.html-layer
+    {
+        margin-left:10em;
+    }
+	.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size :20px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 600px;
+    position: relative;
+    margin: 8% auto;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.closer {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.closer:hover {
+    background: #00d9ff;
+}
+</style>
+
+</head>
+<body>
+
+<div id="wrapper">
+ 
+           <!-- /. NAV TOP  -->
+           <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+					<li class="text-center">
+						<img src="assets/img/find_user4.png" class="user-image img-responsive"/>
+						
+					</li>
+				
+					<li class="text-center">
+                        <a  class="active-menu" href="index.html"> Complex Chemicals </a>
+                    </li>
+					
+                    <li class="text-center">
+					<a href="#openModal">Help Me !</a>
+
+                    </li>
+				
+					 <li class="text-center">
+                        <a   href="coplexpages.html"> Related Pages</a>
+                    </li>
+					
+					 <li class="text-center">
+                        <a  href="phindex.html"> PH Scaler </a>
+                    </li>
+					
+
+                </ul>
+               
+            </div>
+             <div class="sidebar-collapse">
+                 <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <h3>Chemix Visualize </h3>
+                    </li>
+                  
+
+                    <li class="text-center">
+                        <a  href="#openModal2"> About</a>
+                    </li>
+                    
+                     <li class="text-center">
+                        <a   href="#openModal1"> Report a Problem</a>
+                    </li>
+                      <li class="text-center">
+					  <a target="_blank" href="http://chemixvisualize.tumblr.com/post/136463589953/the-basic-template-of-the-mit-license-is-as">
+						Blog
+					  </a>
+                        
+                    </li>
+                    
+                </ul>
+
+               
+            </div>
+            
+        </nav>  
+		
+        <!-- /. NAV SIDE  -->
+<div id="page-wrapper" >
+ <div id="page-inner">
+
+ <div class="html-layer"></div>   
+<div class="page">
+
+<div class="svg-layer">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="ShapeDemo" pageAlignment="none" x="0px" y="0px" viewBox="0 0 1000 600" enable-background="new 0 0 1000 600" xml:space="preserve">
+<defs>
+	<linearGradient id="h909" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#01DFA5" stop-opacity=""1" />
+	  <stop id="h9091" offset="90%" stop-color="#F7FE2E" stop-opacity="1" />
+    </linearGradient>
+	
+	<linearGradient id="h919" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00BFFF" stop-opacity=""1" />
+      <stop id="h9191" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	
+	<linearGradient id="h929" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#E6E6E6" stop-opacity=""1" />
+      <stop id="h9291" offset="90%" stop-color="#F2F2F2" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h939" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F7819F" stop-opacity=""1" />
+      <stop id="h9391" offset="90%" stop-color="#58ACFA" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h949" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#B404AE" stop-opacity=""1" />
+      <stop id="h9491" offset="90%" stop-color="##A4A4A4" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h959" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#A9F5A9" stop-opacity=""1" />
+      <stop id="h9591" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h969" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F7D358" stop-opacity=""1" />
+      <stop id="h9691" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h979" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3B0B39" stop-opacity=""1" />
+      <stop id="h9791" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h989" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#BE81F7" stop-opacity=""1" />
+      <stop id="h9891" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="h999" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F800C7" stop-opacity=""1" />
+      <stop id="h9991" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	
+	<linearGradient id="n909" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#01DFA5" stop-opacity=""1" />
+	  <stop id="n9091" offset="90%" stop-color="#13E5F0" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n919" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00BFFF" stop-opacity=""1" />
+      <stop id="n9191" offset="90%" stop-color="#17175A" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n929" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#E6E6E6" stop-opacity=""1" />
+      <stop id="n9291" offset="90%" stop-color="#E4E4E5" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n939" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F7819F" stop-opacity=""1" />
+      <stop id="n9391" offset="90%" stop-color="#D58259" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n949" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#B404AE" stop-opacity=""1" />
+      <stop id="n9491" offset="90%" stop-color="##E4E4E5" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n959" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#A9F5A9" stop-opacity=""1" />
+      <stop id="n9591" offset="90%" stop-color="#0F3F27" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n969" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F7D358" stop-opacity=""1" />
+      <stop id="n9691" offset="90%" stop-color="#D0FA58" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n979" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3B0B39" stop-opacity=""1" />
+      <stop id="n9791" offset="90%" stop-color="#E4E4E5" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n989" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#BE81F7" stop-opacity=""1" />
+      <stop id="n9891" offset="90%" stop-color="#8E64D2" stop-opacity="1" />
+    </linearGradient>
+	<linearGradient id="n999" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F800C7" stop-opacity=""1" />
+      <stop id="n9991" offset="90%" stop-color="#BB8754" stop-opacity="1" />
+    </linearGradient>  
+	
+</defs>
+
+
+
+<g xmlns="" type="LAYER" name="Layer 01" id="Layer 01">
+<path transform="matrix(1 0 0 1 11.585365853657947 7.059253006000638)" width="978.0487804878044" height="585.9681945743687" stroke-width="2.443882930511192" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M3.410605131648481e-13,4.263256414560601e-14 L978.0487804878047,4.263256414560601e-14 L978.0487804878047,585.9681945743687 L3.410605131648481e-13,585.9681945743687 L3.410605131648481e-13,4.263256414560601e-14 Z "/>
+
+
+<path transform="matrix(1 0 0 1 422.5648780487643 335.0508130081318)" height="220.0000000000001" stroke-width="2" stroke-miterlimit="3" stroke="#000000" stroke-opacity="0.86" fill="#FFFFFF" d="M0,0 L0,220.0000000000001 "/>
+
+<path id="round" transform="matrix(1 0 0 1 184.48069105690266 333.78048780487717)" width="220" height="220.00000000000006" stroke-width="2" stroke-miterlimit="3" stroke="#000000" fill="#F800C7" d="M0,110.00000000000011 C0,49.248672000000056 49.248672000000056,5.684341886080802e-14 109.99999999999989,5.684341886080802e-14 C170.75132800000006,5.684341886080802e-14 220,49.248672000000056 220,110.00000000000011 C220,170.75132800000006 170.75132800000006,220.0000000000001 109.99999999999989,220.0000000000001 C49.248672000000056,220.0000000000001 0,170.75132800000006 0,110.00000000000011 Z "/>
+<!--rect-->
+<rect id="rect1" width="220" height="220" x="184.86" y="332.51"
+					style="stroke:none; position:fixed; bottom:0;" fill="white"/>
+<!--
+<text type="textBox" transform="matrix(1 0 0 1 85 47)" width="164.6" height="25" stroke-width="2" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+<tspan x="0" y="22">Timer</tspan>
+</text>
+-->
+<text type="textBox" transform="matrix(1 0 0 1 400 285)" width="164.6" height="25" stroke-width="2" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+<tspan x="0" y="22">Volume</tspan>
+</text>
+
+<text type="textBox" transform="matrix(1 0 0 1 467 25)" width="164.6" height="25" stroke-width="2" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+<tspan x="0" y="22">Acid / Base</tspan>
+</text>
+
+<text type="textBox" transform="matrix(1 0 0 1 744 25)" width="164.6" height="25" stroke-width="2" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+<tspan x="0" y="22">Aqua Complexes</tspan>
+</text>
+
+<path transform="matrix(1 0 0 1 264.30792682926347 67.72357723577483)" width="60" height="3.628048780490303" stroke-width="1.899539568673541" stroke-miterlimit="3" stroke="#6D6363" fill="#BBA05B" d="M3.410605131648481e-13,-1.8140243902451516 C3.410605131648481e-13,-0.8121662926834574 13.431456000000253,0 30.000000000000227,0 C46.568544000000315,0 60.00000000000034,-0.8121662926834574 60.00000000000034,-1.8140243902451516 C60.00000000000034,-2.8158824878068174 46.568544000000315,-3.628048780490303 30.000000000000227,-3.628048780490303 C13.431456000000253,-3.628048780490303 3.410605131648481e-13,-2.8158824878068174 3.410605131648481e-13,-1.8140243902451516 Z "/>
+<!-- acid/base-->
+<g transform="matrix(1 0 0 1 443.74666316821276 65)">
+
+	<g transform="matrix(1 0 0 1 3.410605131648481e-12 -7.105427357601002e-15)">
+		<g>
+			<path transform="matrix(1 0 0 1 0 4.219512195118497)" width="216.46341463417355" height="35.36585365853658" stroke-width="2" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.8266666666666667" fill="#FFFFFF" d="M0,0 L216.46341463417355,0 L216.46341463417355,35.36585365853658 L0,35.36585365853658 L0,0 Z "/>
+
+			<path transform="matrix(1 0 0 1 174.58536585365903 4.219512195118497)" width="0.20000000000004547" height="37.000000000000014" stroke-width="0.858323599074922" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M0,4.263256414560601e-14 L0.20000000000004547,37.00000000000006 "/>
+
+			<path transform="matrix(0.7071067811865476 -0.7071067811865475 0.7071067811865475 0.7071067811865476 180.07317073172283 15.853658536584668)" width="22.42045891567102" height="22.420458915670793" stroke-width="0.27854321997995607" stroke-miterlimit="3" stroke="#000000" fill="#050000" fill-opacity="0.94" 
+			onclick="visible('mix')" onmouseover="changeCursor(this,'pointer');"
+			d="M-1.0231815394945443e-12,-3.552713678800501e-14 L10.66338899647701,10.66338899647743 L22.420458915669997,22.420458915670757 L-6.821210263296962e-13,22.420458915670757 L-1.0231815394945443e-12,-3.552713678800501e-14 Z ">
+			<title>Click and choose one solution</title>
+			</path>
+
+		</g>
+	</g>
+
+	
+	<path id="colbase" transform="matrix(1 0 0 1 11.003170731718 9.878048780485827)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#ffffff" stroke-opacity="0.8266666666666667" fill="#ffffff" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+	<text type="textBox" transform="matrix(1 0 0 1 45.00317073171823 6.878048780485827)" width="122.26829268292646" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="20" text-align="left" text-anchor="start">
+	<tspan x="0" y="22" id="acidname" >Mixed with</tspan>
+	<tspan x="29" y="30" id="blacidname"></tspan>
+	</text>
+
+
+	<g id="mix" transform="matrix(1 0 0 1 0 40.33658536585362)" style="visibility: hidden;display='';">
+
+		<path width="216.46341463417377" height="93.80487804878067" stroke-width="2" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.8266666666666667" fill="#FFFFFF" d="M0,0 L216.46341463417377,0 L216.46341463417377,93.80487804878067 L0,93.80487804878067 L0,0 Z "/>
+		
+		<rect id="acid" style="fill: none;stroke: none;"
+		onclick="changeChemicals2('#E6E6F6','HCL','')" cursor="pointer"
+		onmouseover="chbg('acid','rgb(235,235,235)')" onmouseout="chbg('acid','none')"
+		x="6" y="12" width="206" height="35" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 18.7)" width="20.7" height="21.95" stroke-width="1" stroke-miterlimit="3" stroke="rgb(175,175,175)" stroke-opacity="0.8" 
+		id="acidpath" onclick="changeChemicals2('#E6E6F6','HCL','')" cursor="pointer"
+		onmouseover="chbg('acid','rgb(235,235,235)')" onmouseout="chbg('acid','none')"
+		fill="#E6E6F6" d="M2.2737367544323206e-13,0 L20.731707317073415,0 L20.731707317073415,21.95121951219511 L2.2737367544323206e-13,21.95121951219511 L2.2737367544323206e-13,0 Z ">
+		</path>
+		
+		<rect id="base" style="fill: none;stroke: none;"
+		onclick="changeChemicals2('#F2F2F2','NH','3')" cursor="pointer"
+		onmouseover="chbg('base','rgb(235,235,235)')" onmouseout="chbg('base','none')"
+		x="6" y="52" width="206" height="35" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 58.7)" width="20.7" height="21.95" stroke-width="1" stroke-miterlimit="3" stroke="rgb(175,175,175)" stroke-opacity="0.8" 
+		id="basepath" onclick="changeChemicals2('#F2F2F2','NH','3')" cursor="pointer"
+		onmouseover="chbg('base','rgb(235,235,235)')" onmouseout="chbg('base','none')"
+		fill="#F2F2F2" d="M2.2737367544323206e-13,0 L20.731707317073415,0 L20.731707317073415,21.951219512195138 L2.2737367544323206e-13,21.951219512195138 L2.2737367544323206e-13,0 Z "/>
+
+		<text type="textBox" id="acidtxt" transform="matrix(1.0000000000000004 0 0 1 45.000000000000114 14.780487804878106)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals2('#E6E6F6','HCL','')" cursor="pointer"
+		onmouseover="chbg('acid','rgb(235,235,235)')" onmouseout="chbg('acid','none')"
+		fill="#000000" font-family="Arial" font-size="20" text-align="left" text-anchor="start">
+		<tspan x="0" y="22">HCl</tspan>
+		</text>
+
+		<text type="textBox" id="basetxt" transform="matrix(1.0000000000000004 0 0 1 45.000000000000114 54.780487804878135)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals2('#F2F2F2','NH','3')" cursor="pointer"
+		onmouseover="chbg('base','rgb(235,235,235)')" onmouseout="chbg('base','none')"
+		fill="#000000" font-family="Arial" font-size="20" text-align="left" text-anchor="start">
+		<tspan x="0" y="22">NH</tspan>
+		<tspan x="29" y="30">3</tspan>
+		</text>
+
+	</g>
+</g>
+<!-- aqua complexes-->
+<g transform="matrix(1 0 0 1 721.3170731707271 65.00000000000003)">
+	<g id="aqua" transform="matrix(1 0 0 1 -4.547473508864641e-13 40.439024390240306)" style="visibility: hidden;display='';">
+		<path width="216.46341463417355" height="420" stroke-width="1.9790482384143198" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.8266666666666667" fill="#FFFFFF" d="M0,0 L216.46341463417355,0 L216.46341463417355,420 L0,420 L0,0 Z "/>
+		
+		<rect id="re1" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#01DFA5','Ni','2+')" cursor="pointer"
+		onmouseover="chbg('re1','rgb(218,255,255)')" onmouseout="chbg('re1','none')"
+		x="5.99" y="12" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 18.78048780487802)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col1" onclick="changeChemicals('#01DFA5','Ni','2+')" cursor="pointer"
+		onmouseover="chbg('re1','rgb(218,255,255)')" onmouseout="chbg('re1','none')"
+		fill="#01DFA5" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+		
+		<rect id="re2" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#00BFFF','Cu','2+')" cursor="pointer"
+		onmouseover="chbg('re2','rgb(218,255,255)')" onmouseout="chbg('re2','none')"
+		x="5.99" y="52" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 58.78048780487805)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col2" onclick="changeChemicals('#00BFFF','Cu','2+')" cursor="pointer"
+		onmouseover="chbg('re2','rgb(218,255,255)')" onmouseout="chbg('re2','none')"
+		fill="#00BFFF" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+		
+		<rect id="re3" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#E6E6E6','Zn','2+')" cursor="pointer"
+		onmouseover="chbg('re3','rgb(218,255,255)')" onmouseout="chbg('re3','none')"
+		x="5.99" y="92" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 98.78048780487808)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col3" onclick="changeChemicals('#E6E6E6','Zn','2+')" cursor="pointer"
+		onmouseover="chbg('re3','rgb(218,255,255)')" onmouseout="chbg('re3','none')"
+		fill="#E6E6E6" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+		
+		<rect id="re4" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#F7819F','Co','2+')" cursor="pointer"
+		onmouseover="chbg('re4','rgb(218,255,255)')" onmouseout="chbg('re4','none')"
+		x="5.99" y="132" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 138.78048780487808)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col4" onclick="changeChemicals('#F7819F','Co','2+')" cursor="pointer"
+		onmouseover="chbg('re4','rgb(218,255,255)')" onmouseout="chbg('re4','none')"
+		fill="#F7819F" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+		
+		<rect id="re5" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#B404AE','Ti','3+')" cursor="pointer"
+		onmouseover="chbg('re5','rgb(218,255,255)')" onmouseout="chbg('re5','none')"
+		x="5.99" y="172" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 178.78048780487805)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col5" onclick="changeChemicals('#B404AE','Ti','3+')" cursor="pointer"
+		onmouseover="chbg('re5','rgb(218,255,255)')" onmouseout="chbg('re5','none')"
+		fill="#B404AE" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+		
+		<rect id="re6" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#A9F5A9','Fe','2+')" cursor="pointer"
+		onmouseover="chbg('re6','rgb(218,255,255)')" onmouseout="chbg('re6','none')"
+		x="5.99" y="212" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 218.7804878048781)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col6" onclick="changeChemicals('#A9F5A9','Fe','2+')" cursor="pointer"
+		onmouseover="chbg('re6','rgb(218,255,255)')" onmouseout="chbg('re6','none')"
+		fill="#A9F5A9" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+
+		<rect id="re7" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#F7D358','Fe','3+')" cursor="pointer"
+		onmouseover="chbg('re7','rgb(218,255,255)')" onmouseout="chbg('re7','none')"
+		x="5.99" y="252" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 258.78048780487813)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col7" onclick="changeChemicals('#F7D358','Fe','3+')" cursor="pointer"
+		onmouseover="chbg('re7','rgb(218,255,255)')" onmouseout="chbg('re7','none')"
+		fill="#F7D358" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+
+		<rect id="re8" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#3B0B39','V','2+')" cursor="pointer"
+		onmouseover="chbg('re8','rgb(218,255,255)')" onmouseout="chbg('re8','none')"
+		x="5.99" y="292" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 298.780487804878)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col8" onclick="changeChemicals('#3B0B39','V','2+')" cursor="pointer"
+		onmouseover="chbg('re8','rgb(218,255,255)')" onmouseout="chbg('re8','none')"
+		fill="#3B0B39" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+
+		<rect id="re9" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#BE81F7','Cr','3+')" cursor="pointer"
+		onmouseover="chbg('re9','rgb(218,255,255)')" onmouseout="chbg('re9','none')"
+		x="5.99" y="332" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 338.78048780487813)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col9" onclick="changeChemicals('#BE81F7','Cr','3+')" cursor="pointer"
+		onmouseover="chbg('re9','rgb(218,255,255)')" onmouseout="chbg('re9','none')"
+		fill="#BE81F7" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+
+		<rect id="re10" style="fill: none;stroke: none;"
+		onclick="changeChemicals('#F800C7','Mn','2+')" cursor="pointer"
+		onmouseover="chbg('re10','rgb(218,255,255)')" onmouseout="chbg('re10','none')"
+		x="5.99" y="372" width="206.9" height="36" rx="0" ry="0"/>
+		<path transform="matrix(1 0 0 1 11 378.780487804878)" width="20.731707317073187" height="21.951219512195138" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.82" 
+		id="col10" onclick="changeChemicals('#F800C7','Mn','2+')" cursor="pointer"
+		onmouseover="chbg('re10','rgb(218,255,255)')" onmouseout="chbg('re10','none')"
+		fill="#F800C7" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+
+		
+		<text type="textBox" transform="matrix(1 0 0 1 45 14.78048780487805)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#01DFA5','Ni','2+')" cursor="pointer"
+		onmouseover="chbg('re1','rgb(218,255,255)')" onmouseout="chbg('re1','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="24" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">Ni</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 54.78048780487808)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#00BFFF','Cu','2+')" cursor="pointer"
+		onmouseover="chbg('re2','rgb(218,255,255)')" onmouseout="chbg('re2','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="30" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">Cu</tspan>
+		<tspan x="44" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 174.7804878048781)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#B404AE','Ti','3+')" cursor="pointer"
+		onmouseover="chbg('re5','rgb(218,255,255)')" onmouseout="chbg('re5','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="22" y="14" font-size="18">3+</tspan>
+		<tspan  x="0" y="22">Ti</tspan>
+		<tspan x="44" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 94.78048780487808)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#E6E6E6','Zn','2+')" cursor="pointer"
+		onmouseover="chbg('re3','rgb(218,255,255)')" onmouseout="chbg('re3','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="30" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">Zn</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 134.78048780487808)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#F7819F','Co','2+')" cursor="pointer"
+		onmouseover="chbg('re4','rgb(218,255,255)')" onmouseout="chbg('re4','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+	    <tspan x="30" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">Co</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 214.78048780487805)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#A9F5A9','Fe','2+')" cursor="pointer"
+		onmouseover="chbg('re6','rgb(218,255,255)')" onmouseout="chbg('re6','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+	    <tspan x="30" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">Fe</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45.000000000000114 254.78048780487816)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#F7D358','Fe','3+')" cursor="pointer"
+		onmouseover="chbg('re7','rgb(218,255,255)')" onmouseout="chbg('re7','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="30" y="14" font-size="18">3+</tspan>
+		<tspan  x="0" y="22">Fe</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 294.78048780487813)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#3B0B39','V','2+')" cursor="pointer"
+		onmouseover="chbg('re8','rgb(218,255,255)')" onmouseout="chbg('re8','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+	    <tspan x="20" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">V</tspan>
+		<tspan x="40" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 334.78048780487813)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#BE81F7','Cr','3+')" cursor="pointer"
+		onmouseover="chbg('re9','rgb(218,255,255)')" onmouseout="chbg('re9','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="28" y="14" font-size="18">3+</tspan>
+		<tspan  x="0" y="22">Cr</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+		<text type="textBox" transform="matrix(1 0 0 1 45 374.78048780487813)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" 
+		onclick="changeChemicals('#F800C7','Mn','2+')" cursor="pointer"
+		onmouseover="chbg('re10','rgb(218,255,255)')" onmouseout="chbg('re10','none')"
+		fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+		<tspan x="30" y="14" font-size="18">2+</tspan>
+		<tspan  x="0" y="22">Mn</tspan>
+		<tspan x="50" y="26" font-size="18">(aq)</tspan>
+		</text>
+
+	</g>
+
+	<g transform="matrix(1 0 0 1 2.0463630789890885e-12 -4.973799150320701e-14)">
+		<g>
+			<path transform="matrix(1 0 0 1 0 4.219512195118497)" width="216.46341463417355" height="35.36585365853658" stroke-width="2" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.8266666666666667" fill="#FFFFFF" d="M0,0 L216.46341463417355,0 L216.46341463417355,35.36585365853658 L0,35.36585365853658 L0,0 Z "/>
+			<path transform="matrix(1 0 0 1 174.58536585365903 4.219512195118497)" width="0.20000000000004547" height="37.000000000000014" stroke-width="0.858323599074922" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M0,4.263256414560601e-14 L0.20000000000004547,37.00000000000006 "/>
+
+			<path transform="matrix(0.7071067811865476 -0.7071067811865475 0.7071067811865475 0.7071067811865476 180.07317073172283 15.853658536584668)" width="22.42045891567102" height="22.420458915670793" stroke-width="0.27854321997995607" stroke-miterlimit="3" stroke="#000000" fill="#050000" fill-opacity="0.94" 
+			onclick="visible('aqua')" onmouseover="changeCursor(this,'pointer');"
+			d="M-1.0231815394945443e-12,-3.552713678800501e-14 L10.66338899647701,10.66338899647743 L22.420458915669997,22.420458915670757 L-6.821210263296962e-13,22.420458915670757 L-1.0231815394945443e-12,-3.552713678800501e-14 Z ">
+			<title>Click and choose one aqua complex solution</title>
+			</path>
+		</g>
+	</g>
+
+	<path id="col" transform="matrix(1 0 0 1 11 11)" width="20.7" height="21.95" stroke-width="0" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.8266666666666667" fill="#F800C7" d="M0,0 L20.731707317073187,0 L20.731707317073187,21.951219512195138 L0,21.951219512195138 L0,0 Z "/>
+
+	<text type="textBox" transform="matrix(1 0 0 1 45 8.2)" width="122.26829268292646" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="20" text-align="left" text-anchor="start">
+
+	<tspan x="30" y="14" id="upname" font-size="18">2+</tspan>
+	<tspan id="textname" x="0" y="22">Mn</tspan>
+	<tspan x="50" y="26" id="bltname" font-size="18">(aq)</tspan>
+	</text>
+
+</g>
+<!-- timer 
+<g transform="matrix(1 0 0 1 66.70697483401338 91.71439001574305)">
+    <path width="107.34331150608045" height="103.55472404115997" stroke-width="11" stroke-linecap="round" stroke-miterlimit="3" stroke="#3F3F3F" fill="#8F8181" d="M0,0 L107.34331150608045,0 L107.34331150608045,103.55472404115997 L0,103.55472404115997 L0,0 Z "/>
+
+    <path transform="matrix(1 0 0 1 11.365762394761646 -18.048572702530592)" width="82.08606173994383" height="60.61739943872792" stroke-width="1.0146480794869883" stroke-linecap="round" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M-5.684341886080802e-14,66.36666030680112 C-5.684341886080802e-14,29.713362592591693 19.35280379526921,36.123625230284176 42.02024589068549,36.123625230284176 C64.68768798610171,36.123625230284176 82.08606173994377,29.71336259259158 82.08606173994377,66.36666030680112 C82.08606173994377,103.01995802101072 65.66490300681545,95.7696110756371 42.99746091139917,95.7696110756371 C20.330018815982783,95.7696110756371 -5.684341886080802e-14,103.01995802101072 -5.684341886080802e-14,66.36666030680112 Z "/>
+
+    <text type="textBox" transform="matrix(1 0 0 1 24.394807091195617 24.123012160898625)" width="70.31987953181692" height="50" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+    <tspan x="0" y="32">0</tspan>
+	<tspan x="28" y="32">Se</tspan>
+    </text>
+</g>
+-->
+<g transform="matrix(1 0 0 1 185.7750576102513 14.460745168723854)">
+	<path transform="matrix(1 0 0 1 92.54762759905395 230.96114296349702)" width="33.14987576629983" height="88.3585996726573" stroke-width="2" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M0,0 L33.14987576629983,0 L33.14987576629983,88.3585996726573 L0,88.3585996726573 L0,0 Z "/>
+	<!--taprect-->
+	<path transform="matrix(1 0 0 1 96.6527879181989 539.4213686524147)" width="25.3963414634145" height="35.071138211381594" stroke-width="1.7278003697322806" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M0,0 L25.3963414634145,0 L25.3963414634145,35.071138211381594 L0,35.071138211381594 L0,0 Z "/>
+	<path transform="matrix(1 0 0 1 76.11417003202018 220.10632800200875)" width="66.51422764227641" height="15.140243902439067" stroke-width="2.1189138534559038" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M1.1368683772161603e-13,9.070121951219562 C1.1368683772161603e-13,4.060831463414672 14.889715365853704,0 33.25711382113832,0 C51.62451227642282,0 66.51422764227652,4.060831463414672 66.51422764227652,9.070121951219562 C66.51422764227652,14.079412439024452 51.62451227642282,15.140243902439067 33.25711382113832,15.140243902439067 C14.889715365853704,15.140243902439067 1.1368683772161603e-13,14.079412439024452 1.1368683772161603e-13,9.070121951219562 Z "/>
+	
+	<path id="tapcol2" transform="matrix(0.7071067811865476 0.7071067811865475 -0.7071067811865475 0.7071067811865476 109.43784889381061 103.3741125548535)" width="28.328106119059612" height="30.038384715833843" stroke-width="3.1748821058807994" stroke-miterlimit="3" stroke="#6D6363" fill="#F800C7" d="M-1.1368683772161603e-13,1.7053025658242404e-13 L28.3281061190595,1.7053025658242404e-13 L28.328106119059385,30.038384715834013 L-1.1368683772161603e-13,30.038384715833956 L-1.1368683772161603e-13,1.7053025658242404e-13 Z "/>
+
+	<path id="tapcol1" transform="matrix(1 0 0 1 86.78591799950061 53.26283206705097)" width="43.902439024390105" height="70.14227642276168" stroke-width="3.182975350603828" stroke-miterlimit="3" stroke="#6D6363" fill="#F800C7" d="M7.958078640513122e-13,0 L43.9024390243909,0 L43.9024390243909,70.14227642276168 L7.958078640513122e-13,70.14227642276168 L7.958078640513122e-13,0 Z "/>
+
+	<path id="tapcol3" transform="matrix(1 0 0 1 102.71986108893145 137.91730361176653)" width="12.093495934959492" height="12.09349593495699" stroke-width="2.5" stroke-miterlimit="3" stroke="#6D6363" fill="#F800C7" d="M1.1368683772161603e-13,0 L12.093495934959606,0 L12.093495934959606,12.09349593495699 L1.1368683772161603e-13,12.09349593495699 L1.1368683772161603e-13,0 Z "/>
+
+	<path transform="matrix(1 0 0 1 83.12591799950053 7.105427357601002e-15)" width="51.40000000000009" height="17" stroke-width="1.7289411458669035" stroke-miterlimit="3" stroke="#6D6363" fill="#BBA05B" d="M1.1368683772161603e-13,8.5 C1.1368683772161603e-13,3.8055791999999826 11.506280640000114,0 25.700000000000387,0 C39.89371936000032,0 51.400000000000205,3.8055791999999826 51.400000000000205,8.5 C51.400000000000205,13.194420800000074 39.89371936000032,17 25.700000000000387,17 C11.506280640000114,17 1.1368683772161603e-13,13.194420800000074 1.1368683772161603e-13,8.5 Z "/>
+	<!--topbutton-->
+	<g id="topbutton" transform="matrix(1 0 0 1 83.12738141413513 9.79944785416054)" onclick="changeDimensions()" cursor="pointer" >
+
+		<g transform="matrix(1 0 0 1 3.410605131648481e-13 -1.4210854715202004e-14)">
+			<path transform="matrix(1 0 0 1 -4.547473508864641e-13 -1.4210854715202004e-14)" width="51.404065040649584" height="40.000000000000014" stroke-width="1.8823094958778448" stroke-miterlimit="3" stroke="#6D6363" stroke-opacity="0.8266666666666667" fill="#BBA05B" d="M3.410605131648481e-13,5.684341886080802e-14 L51.404065040649925,5.684341886080802e-14 L51.404065040649925,40.00000000000007 L3.410605131648481e-13,40.00000000000007 L3.410605131648481e-13,5.684341886080802e-14 Z "/>
+			<path transform="matrix(1 0 0 1 9.603534327210127 5.81189383920146)" width="31.319876160990475" height="29.86330794058793" stroke-width="3.2767416225353068" stroke-miterlimit="3" stroke="#6D6363" fill="#4D0505" d="M-5.684341886080801e-13,14.931653970293937 C-5.684341886080801e-13,6.685128443640963 7.011192309695957,-1.4210854715202004e-14 15.659938080494612,-1.4210854715202004e-14 C24.308683851293495,-1.4210854715202004e-14 31.319876160989907,6.685128443640963 31.319876160989907,14.931653970293937 C31.319876160989907,23.178179496946953 24.308683851293495,29.863307940587916 15.659938080494612,29.863307940587916 C7.011192309695957,29.863307940587916 -5.684341886080801e-13,23.178179496946953 -5.684341886080801e-13,14.931653970293937 Z "/>
+		</g>
+		
+		<path id="smalltap" transform="matrix(1 0 0 1 14.09394427244547 9.916639999354942)" width="22.37134011499313" height="21.05263157894734" stroke-width="0" stroke-miterlimit="3" stroke="#8A0808" fill="#AC1717" fill-opacity="0.7666666666666667" d="M0,10.526315789473713 C0,4.712791578947375 5.0079945069261385,4.263256414560601e-14 11.185670057496395,4.263256414560601e-14 C17.363345608067107,4.263256414560601e-14 22.37134011499313,4.712791578947375 22.37134011499313,10.526315789473713 C22.37134011499313,16.339840000000052 17.363345608067107,21.052631578947384 11.185670057496395,21.052631578947384 C5.0079945069261385,21.052631578947384 0,16.339840000000052 0,10.526315789473713 Z "/>
+		<title>Click and drop the chemical into the flask</title>
+	</g>
+</g>
+
+<path transform="matrix(1 0 0 1 412.8087804877898 334.34634146341506)" width="21.951219512195166" height="0.19999999999998863" stroke-width="2" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M0,0 L21.951219512195166,-0.19999999999998863 "/>
+
+<path transform="matrix(1 0 0 1 412.8087804877898 555.1894962167102)" width="21.951219512195166" height="0.19999999999998863" stroke-width="2" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M0,0 L21.951219512195166,-0.19999999999998863 "/>
+
+<path id="volctrl" transform="matrix(0.7071067811865476 0.7071067811865475 -0.7071067811865475 0.7071067811865476 443.0487804877962 539.0243902439033)" width="22.42045891567102" height="22.420458915670793" stroke-width="0.27854321997995607" stroke-miterlimit="3" stroke="#000000" fill="#050000" fill-opacity="0.94" d="M-1.0231815394945443e-12,-3.552713678800501e-14 L10.66338899647701,10.66338899647743 L22.420458915669997,22.420458915670757 L-6.821210263296962e-13,22.420458915670757 L-1.0231815394945443e-12,-3.552713678800501e-14 Z "/>
+
+<text id="volid" type="textBox" transform="matrix(1 0 0 1 450.3658536585315 542.3780487804962)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+<tspan id="volmeter" x="0" y="22">0.00 ml</tspan>
+<title>Current volume</title>
+</text>
+
+<text id="chemixname" type="textBox" transform="matrix(1 0 0 1 31.097560975608587 339.93902439024396)" width="137.80487804878166" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+<tspan x="0" y="22"></tspan>
+</text>
+<!-- round border-->
+<path transform="matrix(1 0 0 1 183.78048780487458 332.6829268292714)" width="220" height="220.00000000000006" stroke-width="3" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" fill-opacity="0.05333333333333334" d="M0,110.00000000000011 C0,49.248672000000056 49.248672000000056,5.684341886080802e-14 109.99999999999989,5.684341886080802e-14 C170.75132800000006,5.684341886080802e-14 220,49.248672000000056 220,110.00000000000011 C220,170.75132800000006 170.75132800000006,220.0000000000001 109.99999999999989,220.0000000000001 C49.248672000000056,220.0000000000001 0,170.75132800000006 0,110.00000000000011 Z "/>
+<!--bottom visible rect-->
+	<rect id="rect2" width="20" height="38" x="285" y="556" 
+					style="stroke:none; position:fixed; bottom:0;visibility: hidden;display='';" fill="#F800C7"/>
+					
+	<path id="bottombtn" transform="matrix(1 0 0 1 270.38 563.56)" onclick="changeHeight()"
+	width="50.79268292682934" height="15.72154471544684" stroke-width="1.5170807413117982" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M1.1368683772161603e-13,1.1368683772161603e-13 L50.79268292682946,1.1368683772161603e-13 L50.79268292682946,15.721544715446953 L1.1368683772161603e-13,15.721544715446953 L1.1368683772161603e-13,1.1368683772161603e-13 Z ">
+	<title>Click and reduce the chemical level</title>
+	</path>
+	
+				
+	<!--visiblerect-->
+<rect id="visiblerect" width="9.21" height="387" x="290.06" y="166"
+					style="stroke:none; position:fixed; bottom:0;visibility: hidden;display='';" fill="#F800C7"/>
+
+<g id="reload" id="relodbutton" onmouseover="changeCursor(this,'pointer');" onclick="reloadPage()" transform="matrix(1 0 0 1 650 510)">
+<path transform="matrix(1 0 0 1 -5.684341886080802e-14 -2.842170943040401e-14)" width="37.1237772605578" height="40.15428968999154" stroke-width="1.246969809105392" stroke-miterlimit="3" stroke="#2C2A2A" fill="#FFFFFF" d="M1.1368683772161603e-13,20.077144844995786 C1.1368683772161603e-13,8.988842919706315 8.31043968048317,2.842170943040401e-14 18.561888630278986,2.842170943040401e-14 C28.813337580074915,2.842170943040401e-14 37.123777260557915,8.988842919706315 37.123777260557915,20.077144844995786 C37.123777260557915,31.165446770285257 28.813337580074915,40.15428968999157 18.561888630278986,40.15428968999157 C8.31043968048317,40.15428968999157 1.1368683772161603e-13,31.165446770285257 1.1368683772161603e-13,20.077144844995786 Z "></path>
+<path transform="matrix(1 0 0 1 4.636007215628126 9.699914779734314)" width="25.18129385135063" height="24.731627889719505" stroke-width="4.691752822288499" stroke-miterlimit="3" stroke="#000000" fill="#FFFFFF" d="M1.7053025658242404e-13,12.365813944859724 C1.7053025658242404e-13,5.536362863485692 5.637024006458262,0 12.590646925675514,0 C19.54426984489271,0 25.1812938513508,5.536362863485692 25.1812938513508,12.365813944859724 C25.1812938513508,19.195265026233812 19.54426984489271,24.731627889719505 12.590646925675514,24.731627889719505 C5.637024006458262,24.731627889719505 1.7053025658242404e-13,19.195265026233812 1.7053025658242404e-13,12.365813944859724 Z "></path>
+<path transform="matrix(6.123233995736766e-17 1 -1 6.123233995736766e-17 31.218929591208564 6.961040286162785)" width="15.642924968263344" height="15.642924968263287" stroke-width="0.19434172632030408" stroke-miterlimit="3" stroke="#000000" fill="#000000" d="M-7.105427357601002e-13,-1.7053025658242404e-13 L7.4399277288077315,7.439927728807959 L15.642924968262633,15.642924968263117 L-5.115907697472721e-13,15.642924968263117 L-7.105427357601002e-13,-1.7053025658242404e-13 Z "></path><path transform="matrix(1 0 0 1 8.451354768863155 6.961040286162188)" width="9.919903638410801" height="16.024459723586915" stroke-width="0.7457078777422141" stroke-miterlimit="3" stroke="#FFFFFF" fill="#FFFFFF" d="M5.684341886080802e-14,-8.526512829121202e-14 L9.919903638410858,-8.526512829121202e-14 L9.919903638410858,16.02445972358683 L5.684341886080802e-14,16.02445972358683 L5.684341886080802e-14,-8.526512829121202e-14 Z "></path>
+<title>Reload current page</title>
+</g>
+	<path transform="matrix(1 0 0 1 185.12296747967486 454)" width="30" height="2.678861788617951" stroke-width="0.09198550851713022" stroke-miterlimit="3" stroke="#000A09" fill="#030303" d="M0,0 L30,0 L30,-2.678861788617951 L0,-2.678861788617951 L0,0 Z "/>
+	<path transform="matrix(1 0 0 1 191.12296747967486 403)" width="30" height="2.678861788617951" stroke-width="0.09198550851713022" stroke-miterlimit="3" stroke="#000A09" fill="#030303" d="M0,0 L30,0 L30,-2.678861788617951 L0,-2.678861788617951 L0,0 Z "/>
+	<text type="textBox" transform="matrix(1 0 0 1 130.3658536585315 459.3780487804962)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+	<tspan x="0" y="0">20ml</tspan>
+	</text>
+	<text type="textBox" transform="matrix(1 0 0 1 139.3658536585315 409.3780487804962)" width="164.63414634146363" height="25" stroke-width="2.1949777153466363" stroke-miterlimit="3" stroke="none" fill="#000000" font-family="Arial" font-size="22" text-align="left" text-anchor="start">
+	<tspan x="0" y="0">30ml</tspan>
+	</text>
+</g>
+
+</svg>
+</div>
+<div class="html-layer"/>
+ <div id="openModal" class="modalDialog">
+    <div>	<a href="" title="Close" onClick="hide()" class="closer" >X</a>
+
+        	<h2 style="color:#000000;">Help Me !</h2>
+
+         <p style="color:#000000;"># At First you have to select the complex chemical which you need <br><br>
+		# Use the Upper button to drop the chemical into the Flask<br><br>
+		# Use the Bottom button to decrease the chemical level<br><br>
+		# The Complex chemical level must be grater than <b>20 ml </b> 
+		to mix the prefer acid or base with that<br><br>
+		# If we mix the complex chemical with acid or base there will be a color change in the flask, 
+		at the same time you can see the PH change in the PH scalar. <br><br>
+
+	</p>
+    </div>
+</div> 
+
+ <div id="openModal1" class="modalDialog">
+    <div>	<a href="" title="Close" onClick="hide()" class="closer" >X</a>
+
+        <h2 style="color:#000000;">Report a Problem</h2>
+         <p style="color:#000000;">
+			Please copy and paste the information below into an email to 
+			<a target="_blank" href="https:gmail.com">chemixvisualize@gmail.com</a>,
+			and then fill in the blanks. 
+			<br><br>
+			Test device:  <br><br>
+			Operating System:  <br><br>
+			Browser:  <br><br>
+			Problem description:  <br><br>
+			Steps to reproduce:  <br><br>
+			Screenshots:  <br>
+		</p>
+    </div>
+</div>
+ <div id="openModal2" class="modalDialog">
+    <div>	<a href="" title="Close" onClick="hide()" class="closer" >X</a>
+
+        <h2 style="color:#000000;">Chemix Visualize</h2>
+         <p style="color:#000000;">
+			Version : 1.1.1  <br>
+			Copyright © <2016> MozillaSciencelab-Chemix Contributors
+			 <br>
+			<h3  style="color:#000000;font-size:22px;">Development Team</h3>
+			Mr.R.Ratheeswaran<br>
+			Ms.T.Suganya<br>
+			Ms.K.Kopitha<br>
+			Ms.A.Ajantha<br>
+			(University Of Jaffna.)
+			<h3  style="color:#000000;font-size:22px;">Thanks</h3>
+			Lecturer Mr.K.Sarveswaran (RAD Project (2013-2014) Guider) <br>
+			MozillaSciencelab - <a target="_blank" href="https:www.mozillascience.org/projects/chmix">Chemix Team</a><br>
+			<br>
+			<a target="_blank" href="http://chemixvisualize.tumblr.com/post/136463589953/the-basic-template-of-the-mit-license-is-as">Terms,Privacy and Licensing</a>
+		</p>
+    </div>
+</div>  
+</div>
+       <!-- /. PAGE INNER  -->
+</div>
+      <!-- /. PAGE WRAPPER  -->
+</div>
+
+	
+</body>
+</html>
+
