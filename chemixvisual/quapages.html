@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        ChemixVisualize
+    </title>
+    <link rel="icon" type="image/png" href="assets/img/index-icon.png"/>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+   
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="assets/js/index1.js"></script>
+  
+   <style type="text/css">
+	body{ 
+		margin:0; 
+		background-color:rgba(255,255,255,1);
+		width:100%;
+		height:100%;
+	}
+	 .ShapeDemo {
+            min-height: 200px;
+            width: 100%;
+        }
+	.page{ position:relative; }
+	 .html-layer
+    {
+        margin-left:10em;
+    }
+	.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size :20px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 600px;
+    position: relative;
+    margin: 8% auto;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.closer {
+    background: #606061;
+	fill-opacity:1;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.closer:hover {
+    background: #00d9ff;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+<div id="wrapper">
+ 
+           <!-- /. NAV TOP  -->
+           <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+					<li class="text-center">
+						<img src="assets/img/pHMeter.png" class="user-image img-responsive"/>
+						
+					</li>
+					<li class="text-center">
+                        <a  href="index.html"> Qualitative Analysis </a>
+                    </li>
+				
+					<li class="text-center">
+                        <a  href="comindex.html"> Complex Chemicals </a>
+                    </li>
+
+                    <li class="text-center">
+						<a href="#openModal">Help Me !</a>
+                    </li>
+                    
+                     <li class="text-center">
+                        <a   class="active-menu" href="quapages.html"> Related Pages</a>
+                    </li>
+
+
+                     <li class="text-center">
+                        <a href="phindex.html"> PH Scaler </a>
+                    </li>
+                    
+                </ul>
+               
+            </div>
+             <div class="sidebar-collapse">
+                 <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <h3>Chemix Visualize </h3>
+                    </li>
+                  
+
+                    <li class="text-center">
+                        <a  href="#openModal2"> About</a>
+                    </li>
+                    
+                     <li class="text-center">
+                        <a   href="#openModal1"> Report a Problem</a>
+                    </li>
+                      <li class="text-center">
+                       <a target="_blank" href="http://chemixvisualize.tumblr.com/post/136463589953/the-basic-template-of-the-mit-license-is-as">
+						Blog
+					  </a>
+                    </li>
+                    
+                </ul>
+
+               
+            </div>
+            
+        </nav>  
+
+<div id="page-wrapper" >
+ <div id="page-inner">    
+ <div class="html-layer"></div>   
+<div class="page">
+<div class="svg-layer">
+
+<div  style="margin-right:50px;">
+<p style="color:#000000;font-size:18px;margin:10px;">
+<img src="assets/img/txt1.png"/>
+<img src="assets/img/txt2.png"/>
+
+</p>
+</div>
+
+</div>
+<div class="html-layer"/>
+ <div id="openModal" class="modalDialog">
+    <div>	<a href="" title="Close" onClick="hide()" class="closer" >X</a>
+
+        	<h2 style="color:#000000;">Help Me !</h2>
+
+         <p style="color:#000000;"># At First you have to select the complex chemical which you need <br><br>
+		# Use the Upper button to drop the chemical into the Flask<br><br>
+		# Use the Bottom button to decrease the chemical level<br><br>
+		# The Complex chemical level must be grater than <b>40 ml </b> 
+		to mix the prefer acid or base with that<br><br>
+		# If we mix the complex chemical with acid or base there will be a color change in the flask, 
+		at the same time you can see the PH change in the PH scalar. <br><br>
+
+	</p>
+    </div>
+</div>  
+ <div id="openModal1" class="modalDialog">
+    <div>	<a href="" title="Close" onClick="hide()" class="closer" >X</a>
+
+        <h2 style="color:#000000;">Report a Problem</h2>
+         <p style="color:#000000;">
+			Please copy and paste the information below into an email to 
+			<a target="_blank" href="https:gmail.com">chemixvisualize@gmail.com</a>,
+			and then fill in the blanks. 
+			<br><br>
+			Test device:  <br><br>
+			Operating System:  <br><br>
+			Browser:  <br><br>
+			Problem description:  <br><br>
+			Steps to reproduce:  <br><br>
+			Screenshots:  <br>
+		</p>
+    </div>
+</div>
+ <div id="openModal2" class="modalDialog">
+    <div>	<a href="" title="Close" onClick="hide()" class="closer" >X</a>
+
+        <h2 style="color:#000000;">Chemix Visualize</h2>
+         <p style="color:#000000;">
+			Version : 1.1.1  <br>
+			Copyright © <2016> MozillaSciencelab-Chemix Contributors
+			 <br>
+			<h3  style="color:#000000;font-size:22px;">Development Team</h3>
+			Mr.R.Ratheeswaran<br>
+			Ms.T.Suganya<br>
+			Ms.K.Kopitha<br>
+			Ms.A.Ajantha<br>
+			(University Of Jaffna.)
+			<h3  style="color:#000000;font-size:22px;">Thanks</h3>
+			Lecturer Mr.K.Sarveswaran (RAD Project (2013-2014) Guider) <br>
+			MozillaSciencelab - <a target="_blank" href="https:www.mozillascience.org/projects/chmix">Chemix Team</a><br>
+			<br>
+			<a target="_blank" href="http://chemixvisualize.tumblr.com/post/136463589953/the-basic-template-of-the-mit-license-is-as">Terms,Privacy and Licensing</a>
+		</p>
+    </div>
+</div>
+    </div>
+             <!-- /. PAGE INNER  -->
+</div>
+      <!-- /. PAGE WRAPPER  -->
+</div>
+
+    
+</body>
+</html>
